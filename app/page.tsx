@@ -1,62 +1,50 @@
 "use client";
 
-import { Authenticator } from '@aws-amplify/ui-react';
-import { useState, useEffect } from "react";
-import { generateClient } from "aws-amplify/data";
-import type { Schema } from "@/amplify/data/resource";
+import { useState } from "react";
+import Form from 'next/form';
+
+import { Input, Label, Flex, Button, Heading, useAuthenticator, Link } from '@aws-amplify/ui-react';
 import "./../app/app.css";
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
 import "@aws-amplify/ui-react/styles.css";
 
-Amplify.configure(outputs);
-
-const client = generateClient<Schema>();
+import { postLinkForm } from "@/actions/postAction";
 
 export default function App() {
-  const [todos, setTodos] = useState<Array<Schema["Todo"]["type"]>>([]);
+  const [url, setUrl] = useState("");
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
 
-  function listTodos() {
-    client.models.Todo.observeQuery().subscribe({
-      next: (data) => setTodos([...data.items]),
-    });
-  }
+  const handleInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    const inputValue = event.target.value;
+    setUrl(inputValue);
 
-  function deleteTodo(id: string) {
-    client.models.Todo.delete({ id })
-  }
-
-  useEffect(() => {
-    listTodos();
-  }, []);
-
-  function createTodo() {
-    client.models.Todo.create({
-      content: window.prompt("Todo content"),
-    });
-  }
+    //check if the input is a valid URL
+    const isValidUrl = url.match(/http(s)?:\/\/(www\.)?(suumo\.jp|homes\.co\.jp)\/[\w\-\/?=&%\.]*/);
+    if (isValidUrl){
+      setIsButtonDisabled(false);  // ボタンを有効にする
+    } else {
+      setIsButtonDisabled(true);  // ボタンを無効にする
+    }
+  };
 
   return (
-    <Authenticator>
-      {({ signOut, user }) => (
-        <main>
-        <h1>{user?.signInDetails?.loginId}'s todos</h1>
-        <button onClick={createTodo}>+ new</button>
-        <ul>
-          {todos.map((todo) => (
-            <li key={todo.id} onClick={() => deleteTodo(todo.id)}>{todo.content}</li>
-          ))}
-        </ul>
+    <main>
+      <h1>Suumo/Home's</h1>
+      <Flex direction="column" gap="small">
         <div>
-          🥳 App successfully hosted. Try creating a new todo.
-          <br />
-          <a href="https://docs.amplify.aws/nextjs/start/quickstart/nextjs-app-router-client-components/">
-            Review next steps of this tutorial.
-          </a>
+          <Heading level={2}>物件アセスメント</Heading>
+          <p>評価したい物件のURLを入力してください</p>
         </div>
-        <button onClick={signOut}>Sign out</button>
-      </main>
-      )}
-    </Authenticator>
+
+        <Form action={postLinkForm}>
+          <Label htmlFor="link">URL:</Label>
+          <Input id="estate_link" name="estate_link" required onChange={handleInput} />
+          <Button type="submit" isDisabled={isButtonDisabled}>Go!!</Button>
+        </Form>
+
+        <Link href="/login">login</Link>
+      </Flex>
+  </main>
+
   );
 }
