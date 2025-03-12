@@ -43,7 +43,7 @@ export default function App() {
 
   return (
     <main>
-      <h1>Suumo/Home's</h1>
+      <h1>{`Suumo/Home's`}</h1>
       <Flex direction="column" gap="small">
         <div>
           <Heading level={2}>物件アセスメント</Heading>
