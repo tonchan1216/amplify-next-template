@@ -1,5 +1,14 @@
 "use client";
 
+import { Amplify } from "aws-amplify";
+import outputs from "@/amplify_outputs.json";
+import { generateClient } from "aws-amplify/data";
+import type { Schema } from "@/amplify/data/resource";
+Amplify.configure(outputs);
+
+const client = generateClient<Schema>();
+type Todo = Schema['Todo']['type'];
+
 import {
   View,
   Button,
@@ -10,10 +19,11 @@ import {
   TableHead,
   TableRow,
 } from "@aws-amplify/ui-react";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import RadarChartComponent from "@/components/elements/RadarChartComponent";
 
-const data = [
+const chartData = [
   { subject: "利便性", A: 100, B: 60, fullMark: 100 },
   { subject: "快適性", A: 98, B: 60, fullMark: 100 },
   { subject: "耐震", A: 86, B: 60, fullMark: 100 },
@@ -22,7 +32,30 @@ const data = [
 ];
 
 export default function Page() {
+  const searchParams = useSearchParams();
+  const id = searchParams.get("id");
   const router = useRouter();
+
+  const [data, setData] = useState<Todo>();
+
+  useEffect(() => {
+    (async() => {
+      if (id) {
+        console.log(id)
+        const {data, errors} = await client.models.Todo.get({
+          id: id
+        })
+
+        if(errors){
+          console.log(errors)
+          return
+        }
+        console.log(data)
+        // console.log(todo)
+        // setData(todo as Todo);
+      }  
+    })()
+  }, [id]);
 
   return (
     <View>
@@ -31,10 +64,11 @@ export default function Page() {
       <View>
         <Heading level={2}>Summary</Heading>
         <Heading level={3}>プラウド町屋 8480万円（2LDK）</Heading>
+        <Heading level={4}>URL: {data?.url}</Heading>
         <Heading level={4}>総合：点</Heading>
 
         {/* RadarChart を表示 */}
-        <RadarChartComponent data={data} />
+        <RadarChartComponent data={chartData} />
       </View>
 
       <View>

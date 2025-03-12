@@ -13,13 +13,15 @@ const client = generateClient<Schema>();
 export async function postLinkForm(formData: FormData) {
   const link = formData.get("estate_link") as string;
   console.log(link)
-
-  const { data: todos } = await client.models.Todo.list()
-  console.log(todos);
+  // const { data: todos } = await client.models.Todo.list()
+  // console.log(todos);
 
   const { data: createResult, errors: createErrors } = await client.models.Todo.create({
-    content: link,
+    url: link,
   });
-  console.log(createErrors)
-  // redirect("/assessment/");
+
+  if (!createErrors) {
+    console.log(createResult)
+    redirect("/assessment?id=" + createResult?.id);
+  }
 }
