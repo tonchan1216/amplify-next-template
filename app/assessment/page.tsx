@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from 'react'
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 import { generateClient } from "aws-amplify/data";
@@ -31,10 +32,9 @@ const chartData = [
   { subject: "その他", A: 85, B: 60, fullMark: 100 },
 ];
 
-export default function Page() {
+function MainComponent() {
   const searchParams = useSearchParams();
   const id = searchParams.get("id");
-  const router = useRouter();
 
   const [data, setData] = useState<Todo>();
 
@@ -52,15 +52,13 @@ export default function Page() {
         }
         console.log(data)
         // console.log(todo)
-        // setData(todo as Todo);
+        setData(data as Todo);
       }  
     })()
   }, [id]);
 
   return (
     <View>
-      <Heading level={1}>物件アセスメント</Heading>
-
       <View>
         <Heading level={2}>Summary</Heading>
         <Heading level={3}>プラウド町屋 8480万円（2LDK）</Heading>
@@ -73,9 +71,7 @@ export default function Page() {
 
       <View>
         <Heading level={3}>Detail</Heading>
-      </View>
-
-      <Table highlightOnHover={false} variation="striped">
+        <Table highlightOnHover={false} variation="striped">
         <TableHead>
           <TableRow>
             <TableCell as="th">項目</TableCell>
@@ -117,11 +113,27 @@ export default function Page() {
             <TableCell>-</TableCell>
           </TableRow>
         </TableBody>
-      </Table>
+        </Table>
+      </View>
+
+    </View>
+  );
+}
+
+export default function Page() {
+  const router = useRouter();
+
+  return (
+    <View>
+      <Heading level={1}>物件アセスメント</Heading>
+
+      <Suspense>
+        <MainComponent />
+      </Suspense>
 
       <Button type="button" onClick={() => router.back()}>
         back
       </Button>
     </View>
-  );
+  )
 }
