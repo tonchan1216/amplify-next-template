@@ -1,3 +1,6 @@
+import MarketingFooter from "@/components/layouts/MarketingFooter"
+import NavBarHeader from "@/components/layouts/NavBarHeader"
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./app.css";
@@ -18,7 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <main>
+          <NavBarHeader></NavBarHeader>
+          {children}
+          <MarketingFooter></MarketingFooter>
+        </main>
       </body>
     </html>
   );
