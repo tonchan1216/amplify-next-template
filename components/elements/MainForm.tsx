@@ -120,42 +120,20 @@ export default function MainForm() {
 
   return (
     <View>
-      <Flex
-        gap="27px"
-        padding="0 20vw"
-        direction="column"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-      >
-        <Text
-          fontFamily="Roboto"
-          fontSize="32px"
-          fontWeight="500"
-          color="rgba(0,0,0,1)"
-          lineHeight="20px"
-        >Suumo / Home’s Link</Text>
+      <Flex gap="27px" padding="0 10vw" direction="column" alignItems="stretch">
+        <Text fontSize="32px" lineHeight="20px">Suumo / Home’s Link</Text>
 
-        {/* <Text
-          fontFamily="Inter"
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(48,64,80,1)"
-          lineHeight="24px"
-          alignSelf="stretch"
-          children="URL Link Here"
-        ></Text> */}
         <Form action={postLinkForm}>
           <Input 
             id="estate_link"
             name="estate_link"
             value={url}
-            required
             onChange={handleInput}
             hasError={hasError}
             placeholder="https://www.sumo.jp/"
           />
 
-          <Flex>
+          <Flex alignItems="stretch" justifyContent="flex-end" gap="16px">
             <Button type="button" size="large" onClick={handlePaste} variation="link">Paste</Button>
             <Button type="submit" size="large" isDisabled={isButtonDisabled} variation="primary">GO!!</Button>
           </Flex>

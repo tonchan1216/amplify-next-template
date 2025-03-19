@@ -24,9 +24,6 @@ export default function SettingsPage(props) {
       width="1440px"
       height="855px"
       display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
       position="relative"
       padding="0px 0px 0px 0px"
       {...getOverrideProps(overrides, "SettingsPage")}
@@ -36,7 +33,6 @@ export default function SettingsPage(props) {
         gap="0"
         direction="column"
         width="1440px"
-        height="unset"
         justifyContent="flex-start"
         alignItems="flex-start"
         overflow="hidden"
@@ -52,7 +48,6 @@ export default function SettingsPage(props) {
           gap="40px"
           direction="row"
           width="1440px"
-          height="unset"
           justifyContent="center"
           alignItems="center"
           shrink="0"
@@ -65,8 +60,6 @@ export default function SettingsPage(props) {
         <Flex
           gap="0"
           direction="row"
-          width="unset"
-          height="unset"
           justifyContent="flex-start"
           alignItems="flex-start"
           shrink="0"
@@ -91,8 +84,6 @@ export default function SettingsPage(props) {
           <Flex
             gap="16px"
             direction="column"
-            width="unset"
-            height="unset"
             justifyContent="flex-start"
             alignItems="flex-start"
             overflow="hidden"
@@ -106,8 +97,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="8px"
               direction="column"
-              width="unset"
-              height="unset"
               justifyContent="flex-start"
               alignItems="flex-start"
               shrink="0"
@@ -124,11 +113,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -145,11 +129,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -162,7 +141,6 @@ export default function SettingsPage(props) {
               ></Text>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -173,8 +151,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -192,11 +168,7 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
                 width="300px"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -213,11 +185,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 grow="1"
                 shrink="1"
                 basis="0"
@@ -228,8 +195,6 @@ export default function SettingsPage(props) {
                 {...getOverrideProps(overrides, "Wesley Peck")}
               ></Text>
               <Button
-                width="unset"
-                height="unset"
                 shrink="0"
                 size="small"
                 isDisabled={false}
@@ -239,7 +204,6 @@ export default function SettingsPage(props) {
               ></Button>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -250,8 +214,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -269,11 +231,7 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
                 width="300px"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -290,11 +248,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 grow="1"
                 shrink="1"
                 basis="0"
@@ -305,8 +258,6 @@ export default function SettingsPage(props) {
                 {...getOverrideProps(overrides, "Product Manager")}
               ></Text>
               <Button
-                width="unset"
-                height="unset"
                 shrink="0"
                 size="small"
                 isDisabled={false}
@@ -316,7 +267,6 @@ export default function SettingsPage(props) {
               ></Button>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -327,8 +277,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -346,11 +294,7 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
                 width="300px"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -367,11 +311,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 grow="1"
                 shrink="1"
                 basis="0"
@@ -382,8 +321,6 @@ export default function SettingsPage(props) {
                 {...getOverrideProps(overrides, "AWS")}
               ></Text>
               <Button
-                width="unset"
-                height="unset"
                 shrink="0"
                 size="small"
                 isDisabled={false}
@@ -393,7 +330,6 @@ export default function SettingsPage(props) {
               ></Button>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -404,8 +340,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -423,11 +357,7 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
                 width="300px"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -444,11 +374,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 grow="1"
                 shrink="1"
                 basis="0"
@@ -459,8 +384,6 @@ export default function SettingsPage(props) {
                 {...getOverrideProps(overrides, "wpeck@aws.com")}
               ></Text>
               <Button
-                width="unset"
-                height="unset"
                 shrink="0"
                 size="small"
                 isDisabled={false}
@@ -470,7 +393,6 @@ export default function SettingsPage(props) {
               ></Button>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -481,8 +403,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="8px"
               direction="column"
-              width="unset"
-              height="unset"
               justifyContent="flex-start"
               alignItems="flex-start"
               shrink="0"
@@ -499,11 +419,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -520,11 +435,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -537,7 +447,6 @@ export default function SettingsPage(props) {
               ></Text>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -548,8 +457,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -567,11 +474,7 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
                 width="300px"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 shrink="0"
                 position="relative"
                 padding="0px 0px 0px 0px"
@@ -588,11 +491,6 @@ export default function SettingsPage(props) {
                 textAlign="left"
                 display="block"
                 direction="column"
-                justifyContent="unset"
-                width="unset"
-                height="unset"
-                gap="unset"
-                alignItems="unset"
                 grow="1"
                 shrink="1"
                 basis="0"
@@ -603,8 +501,6 @@ export default function SettingsPage(props) {
                 {...getOverrideProps(overrides, "Text")}
               ></Text>
               <SwitchField
-                width="unset"
-                height="unset"
                 shrink="0"
                 label="On"
                 size="default"
@@ -615,7 +511,6 @@ export default function SettingsPage(props) {
               ></SwitchField>
             </Flex>
             <Divider
-              width="unset"
               height="1px"
               shrink="0"
               alignSelf="stretch"
@@ -626,8 +521,6 @@ export default function SettingsPage(props) {
             <Flex
               gap="16px"
               direction="row"
-              width="unset"
-              height="unset"
               justifyContent="center"
               alignItems="center"
               shrink="0"
@@ -639,8 +532,6 @@ export default function SettingsPage(props) {
               <Flex
                 gap="8px"
                 direction="column"
-                width="unset"
-                height="unset"
                 justifyContent="center"
                 alignItems="center"
                 grow="1"
@@ -659,11 +550,6 @@ export default function SettingsPage(props) {
                   textAlign="left"
                   display="block"
                   direction="column"
-                  justifyContent="unset"
-                  width="unset"
-                  height="unset"
-                  gap="unset"
-                  alignItems="unset"
                   shrink="0"
                   alignSelf="stretch"
                   position="relative"
@@ -681,11 +567,6 @@ export default function SettingsPage(props) {
                   textAlign="left"
                   display="block"
                   direction="column"
-                  justifyContent="unset"
-                  width="unset"
-                  height="unset"
-                  gap="unset"
-                  alignItems="unset"
                   shrink="0"
                   alignSelf="stretch"
                   position="relative"
@@ -699,8 +580,6 @@ export default function SettingsPage(props) {
                 ></Text>
               </Flex>
               <Button
-                width="unset"
-                height="unset"
                 shrink="0"
                 size="default"
                 isDisabled={false}
