@@ -1,7 +1,6 @@
 import {
   Button,
   Flex,
-  Image,
   Rating,
   Text,
   View,
@@ -29,16 +28,14 @@ export default function Summary() {
         fontWeight="600"
         color="rgba(13,26,38,1)"
         lineHeight="30px"
-        children="プラウド町屋"
-      ></Text>
+      >プラウド町屋</Text>
       <Text
         fontSize="24px"
         fontWeight="500"
         color="rgba(0,0,0,1)"
         lineHeight="36px"
         alignSelf="stretch"
-        children="8,480万円"
-      ></Text>
+      >8,480万円</Text>
 
       <Flex gap="16px" direction="row">
         <Rating value={2} maxValue={5}></Rating>
@@ -48,8 +45,7 @@ export default function Summary() {
           color="rgba(13,26,38,1)"
           lineHeight="18px"
           textDecoration="underline"
-          children="75点"
-        ></Text>
+        >75点</Text>
       </Flex>
 
       <Flex gap="16px" direction="column">

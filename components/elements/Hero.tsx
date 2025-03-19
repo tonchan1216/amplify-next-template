@@ -6,8 +6,7 @@
 
 /* eslint-disable */
 import { Button, Flex, Image, Text } from "@aws-amplify/ui-react";
-export default function HeroLayout1(props) {
-  const { overrides: overridesProp, ...rest } = props;
+export default function Hero() {
   const variants = [
     {
       overrides: {
@@ -33,7 +32,6 @@ export default function HeroLayout1(props) {
         Button: {},
         HeroMessage: {},
         Left: { backgroundColor: "rgba(13,26,38,1)" },
-        image: { width: "unset", alignSelf: "stretch" },
         Right: {},
         HeroLayout1: {},
       },
@@ -45,7 +43,6 @@ export default function HeroLayout1(props) {
       gap="0"
       direction="row"
       // width="1440px"
-      height="unset"
       justifyContent="center"
       alignItems="center"
       position="relative"
@@ -56,7 +53,6 @@ export default function HeroLayout1(props) {
         gap="10px"
         direction="column"
         width="720px"
-        height="unset"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
@@ -70,8 +66,6 @@ export default function HeroLayout1(props) {
         <Flex
           gap="24px"
           direction="column"
-          width="unset"
-          height="unset"
           justifyContent="center"
           alignItems="center"
           shrink="0"
@@ -83,8 +77,6 @@ export default function HeroLayout1(props) {
           <Flex
             gap="16px"
             direction="column"
-            width="unset"
-            height="unset"
             justifyContent="center"
             alignItems="center"
             shrink="0"
@@ -101,12 +93,6 @@ export default function HeroLayout1(props) {
               lineHeight="24px"
               textAlign="center"
               display="block"
-              direction="column"
-              justifyContent="unset"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
               shrink="0"
               alignSelf="stretch"
               position="relative"
@@ -122,12 +108,6 @@ export default function HeroLayout1(props) {
               lineHeight="30px"
               textAlign="center"
               display="block"
-              direction="column"
-              justifyContent="unset"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
               shrink="0"
               alignSelf="stretch"
               position="relative"
@@ -143,13 +123,7 @@ export default function HeroLayout1(props) {
               lineHeight="24px"
               textAlign="center"
               display="block"
-              direction="column"
-              justifyContent="unset"
               letterSpacing="0.01px"
-              width="unset"
-              height="unset"
-              gap="unset"
-              alignItems="unset"
               shrink="0"
               alignSelf="stretch"
               position="relative"
@@ -159,8 +133,6 @@ export default function HeroLayout1(props) {
             ></Text>
           </Flex>
           <Button
-            width="unset"
-            height="unset"
             shrink="0"
             size="large"
             isDisabled={false}
@@ -173,7 +145,6 @@ export default function HeroLayout1(props) {
         gap="10px"
         direction="column"
         width="720px"
-        height="unset"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
@@ -185,17 +156,13 @@ export default function HeroLayout1(props) {
       >
         <Image
           width="720px"
-          height="unset"
           display="block"
-          gap="unset"
-          alignItems="unset"
-          justifyContent="unset"
           grow="1"
           shrink="1"
           basis="0"
           position="relative"
-          padding="0px 0px 0px 0px"
-          objectFit="unset"
+          src="https://cdn.ampproject.org/ii/w720/s/www.ampproject.org/v/s/www.ampproject.org/amphtml/images/hero.png"
+          alt="hero"
         ></Image>
       </Flex>
     </Flex>

@@ -1,8 +1,6 @@
 import {
-  Button,
   Divider,
   Flex,
-  Image,
   Rating,
   Text,
   View,
@@ -27,7 +25,7 @@ export default function Detail() {
   )
 }
 
-function ItemCard(props) {
+function ItemCard({title, description}:{title: string, description: string}) {
   return (
     <View width="45vw">
       <Flex
@@ -52,7 +50,7 @@ function ItemCard(props) {
             lineHeight="25px"
             textAlign="left"
             alignSelf="stretch"
-          >{props.title}</Text>
+          >{title}</Text>
 
           <Text
             fontSize="14px"
@@ -62,7 +60,7 @@ function ItemCard(props) {
             textAlign="left"
             grow="1"
             shrink="1"
-          >{props.description}</Text>
+          >{description}</Text>
 
         </Flex>
 
@@ -87,8 +85,7 @@ function ItemCard(props) {
             shrink="1"
             basis="0"
             position="relative"
-            children="80/100"
-          ></Text>
+          >80/100</Text>
         </Flex>
       </Flex>
     </View>
@@ -96,7 +93,7 @@ function ItemCard(props) {
   )
 }
 
-function Comment(props) {
+function Comment({category}:{category: string}) {
   return (
       <Text
       fontSize="16px"
@@ -108,6 +105,6 @@ function Comment(props) {
       letterSpacing="0.01px"
       alignSelf="stretch"
       position="relative"
-    >{props.category}:</Text>
+    >{category}:</Text>
   )
 }

@@ -1,41 +1,33 @@
 "use client";
 
-import MarketingFooter from "@/components/layouts/MarketingFooter"
-import NavBarHeader from "@/components/layouts/NavBarHeader"
-import ProfileCard from "@/components/elements/ProfileCard"
-
-import { Authenticator, Link, View, Flex, Text } from '@aws-amplify/ui-react';
+import { Authenticator, View, Heading } from '@aws-amplify/ui-react';
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 Amplify.configure(outputs);
+import { useEffect, useState } from "react";
+import { getCurrentUser } from 'aws-amplify/auth';
+import ProfileCard from "./ProfileCard"
 
 export default function MyPage() {
-    return (
-        <Authenticator>
-        {({ signOut, user }) => (
-          <View overflow="hidden" backgroundColor="rgba(255,255,255,1)" padding="25px 30px">
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    (async() => {
+      try {
+        const currentUser = await getCurrentUser();
+        setUser(currentUser);
+        console.log("Current user:", currentUser);
+      } catch (error) {
+        console.error("Error fetching user:", error);
+      }
+    })();
+  }, []);
 
-            <Text
-              fontFamily="Inter"
-              fontSize="64px"
-              fontWeight="700"
-              color="rgba(0,0,0,1)"
-              lineHeight="77.45454406738281px"
-              textAlign="left"
-              display="block"
-              letterSpacing="-1.13px"
-              shrink="0"
-              alignSelf="stretch"
-              position="relative"
-              padding="0px 0px 0px 0px"
-              whiteSpace="pre-wrap"
-              children="My Page"
-            ></Text>
+  return (
+    <View overflow="hidden" backgroundColor="rgba(255,255,255,1)" padding="25px 30px">
 
-          <ProfileCard></ProfileCard>
+      <Heading level={1} fontWeight="700">My Page</Heading>
+      <ProfileCard userinfo={user}></ProfileCard>
 
-        </View>
-        )}
-        </Authenticator>
-      );
+    </View>
+  );
 }

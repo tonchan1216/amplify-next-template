@@ -2,10 +2,10 @@
 import { useEffect, useState } from "react";
 import Form from 'next/form';
 
-import { Input, Label, Flex, Button, Heading, Link, View, Text, Badge, SwitchField, Icon } from '@aws-amplify/ui-react';
+import { Input, Flex, Button, Heading, View, Text, Badge, SwitchField } from '@aws-amplify/ui-react';
 import { postLinkForm } from "@/actions/postAction";
 
-function PriorityItem(props: any) {
+function PriorityItem({ recommend }: { recommend: boolean }) {
   return (
     <Flex
       gap="16px"
@@ -15,7 +15,7 @@ function PriorityItem(props: any) {
       padding="16px 16px 16px 16px"
       backgroundColor="rgba(255,255,255,1)"
     >
-      { props.recommend && <Badge size="small" variation="success">おすすめ</Badge>}
+      { recommend && <Badge size="small" variation="success">おすすめ</Badge>}
 
       <Flex
         gap="0"
@@ -33,8 +33,7 @@ function PriorityItem(props: any) {
             fontWeight="700"
             color="rgba(13,26,38,1)"
             lineHeight="20px"
-            children="T-Shirt"
-          ></Text>
+          >T-Shirt</Text>
           <Text
             fontFamily="Inter"
             fontSize="16px"
@@ -42,8 +41,7 @@ function PriorityItem(props: any) {
             color="rgba(48,64,80,1)"
             lineHeight="24px"
             letterSpacing="0.01px"
-            children="Classic Long Sleeve"
-          ></Text>
+          >Classic Long Sleeve</Text>
         </Flex>
         <SwitchField
           label="On"
@@ -73,16 +71,16 @@ function Priority() {
       >
         <Flex direction="column">
           <PriorityItem recommend={true}></PriorityItem>
-          <PriorityItem></PriorityItem>
-          <PriorityItem></PriorityItem>
-          <PriorityItem></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
         </Flex>
 
         <Flex direction="column">
-          <PriorityItem></PriorityItem>
-          <PriorityItem></PriorityItem>
-          <PriorityItem></PriorityItem>
-          <PriorityItem></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
+          <PriorityItem recommend={false}></PriorityItem>
         </Flex>
       </Flex>
     </Flex>
@@ -135,8 +133,7 @@ export default function MainForm() {
           fontWeight="500"
           color="rgba(0,0,0,1)"
           lineHeight="20px"
-          children="Suumo / Home’s Link"
-        ></Text>
+        >Suumo / Home’s Link</Text>
 
         {/* <Text
           fontFamily="Inter"
