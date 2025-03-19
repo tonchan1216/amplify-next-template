@@ -25,14 +25,15 @@ function MainComponent() {
       if (id) {
         const {data, errors} = await client.models.Todo.get({id: id})
         if(errors){
-          console.log(errors)
+          console.error(errors)
           return
         }
-        console.log(data)
         setData(data as Todo);
       }  
     })()
   }, [id]);
+
+  console.log(data)
 
   return (
     <View>

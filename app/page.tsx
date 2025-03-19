@@ -3,7 +3,7 @@
 import { Flex, Heading, View } from '@aws-amplify/ui-react';
 import "./../app/app.css";
 import "@aws-amplify/ui-react/styles.css";
-import HeroLayout1 from "@/components/elements/HeroLayout1"
+import Hero from "@/components/elements/Hero"
 import MainForm from "@/components/elements/MainForm"
 
 export default function App() {
@@ -13,22 +13,19 @@ export default function App() {
         <View>
           <Heading
             level={1}
-            fontFamily="Inter"
             fontWeight="700"
-            color="rgba(0,0,0,1)"
             lineHeight="77.45454406738281px"
             textAlign="left"
             display="block"
             letterSpacing="-1.13px"
-            children="HOME"
-          ></Heading>
+          >HOME</Heading>
         </View>
 
         <MainForm></MainForm>
 
       </Flex>
 
-      <HeroLayout1></HeroLayout1>
+      <Hero></Hero>
     </View>
   );
 }

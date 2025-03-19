@@ -6,7 +6,7 @@
 
 /* eslint-disable */
 import { Icon } from "@aws-amplify/ui-react";
-export default function MyIcon(props) {
+export default function MyIcon() {
   const variants = [
     { overrides: { MyIcon: {} }, variantValues: { type: "warning" } },
     {
@@ -578,9 +578,6 @@ export default function MyIcon(props) {
       width="24px"
       height="24px"
       display="block"
-      gap="unset"
-      alignItems="unset"
-      justifyContent="unset"
       overflow="hidden"
       position="relative"
       padding="0px 0px 0px 0px"

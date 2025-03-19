@@ -3,9 +3,14 @@
 
 import { Button, Flex, Icon, Text, View, Link } from "@aws-amplify/ui-react";
 
-const BarItem = (props) => {
+interface BarItemProps {
+  name: string;
+  link: string;
+}
+
+const BarItem = ({ name, link }: BarItemProps) => {
   return (
-    <Link href={props.link}>
+    <Link href={link}>
       <Text
         fontFamily="Inter"
         fontSize="16px"
@@ -14,20 +19,15 @@ const BarItem = (props) => {
         lineHeight="24px"
         textAlign="left"
         display="block"
-        direction="column"
         position="relative"
         whiteSpace="pre-wrap"
-        children={props.name}
-      ></Text>
+      >{name}</Text>
     </Link>
   )
 }
 
 
-export default function NavBarHeader(props) {
-  const { overrides, ...rest } = props;
-
-
+export default function NavBarHeader() {
   return (
     <Flex
       gap="10px"
@@ -93,11 +93,11 @@ export default function NavBarHeader(props) {
         position="relative"
       >
         <Link href="/login">
-          <Button variation="link" children="Log in"></Button>
+          <Button variation="link">Log in</Button>
         </Link>
 
         <Link href="/signup">
-          <Button variation="primary" children="Sign up"></Button>
+          <Button variation="primary">Sign up</Button>
         </Link>
       </Flex>
     </Flex>
