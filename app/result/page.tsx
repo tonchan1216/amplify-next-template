@@ -82,14 +82,14 @@ function MainComponent() {
   }
 
   return (
-    <View>
+    <Flex gap="24px" direction="column" justifyContent="flex-start" alignItems="flex-start">
       {scrapedData ? (
         <Summary propertyData={scrapedData} score={score} />
       ) : (
         <View>No Data Available</View>
       )}
       <Detail score={score} />
-    </View>
+    </Flex>
   );
 }
 
