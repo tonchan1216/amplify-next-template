@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import MyIcon from "@/components/elements/MyIcon"
 import { Button, Flex, Image, Text, TextField } from "@aws-amplify/ui-react";
 export default function EditProfile() {
@@ -58,8 +57,7 @@ export default function EditProfile() {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Edit Profile"
-          ></Text>
+          >Edit Profile</Text>
         </Flex>
         <Flex
           gap="16px"
@@ -80,6 +78,8 @@ export default function EditProfile() {
             borderRadius="160px"
             padding="0px 0px 0px 0px"
             objectFit="cover"
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+            alt="Profile Picture"                
           ></Image>
           <Text
             fontFamily="Inter"
@@ -95,8 +95,7 @@ export default function EditProfile() {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Upload New Image"
-          ></Text>
+          >Upload New Image</Text>
         </Flex>
         <Flex
           gap="16px"
@@ -144,8 +143,7 @@ export default function EditProfile() {
           size="default"
           isDisabled={false}
           variation="primary"
-          children="Save"
-        ></Button>
+        >Save</Button>
       </Flex>
     </Flex>
   );

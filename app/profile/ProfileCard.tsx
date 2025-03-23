@@ -1,8 +1,8 @@
 import { Button, Flex, Image, Text, Link } from "@aws-amplify/ui-react";
 import MyIcon from "@/components/elements/MyIcon"
+import { type AuthUser } from "aws-amplify/auth";
 
-export default function ProfileCard({userinfo}: {userinfo: any}) {
-  // console.log("userinfo", userinfo);
+export default function ProfileCard({userinfo}: {userinfo: AuthUser | null}) {
   return (
     <Flex gap="24px" direction="column" alignItems="center" padding="24px" backgroundColor="rgba(255,255,255,1)">
       <Image
@@ -23,7 +23,8 @@ export default function ProfileCard({userinfo}: {userinfo: any}) {
           {userinfo ? userinfo.username: "Guest"}
         </Text>
         <Text fontSize="16px" fontWeight="400" color="rgba(48,64,80,1)" textAlign="center">
-          {userinfo ? userinfo.signInDetails.loginId: ""}
+          {/* {userinfo ? userinfo.signInDetails.loginId: ""} */}
+          {userinfo?.signInDetails?.loginId}
         </Text>
       </Flex>
 
