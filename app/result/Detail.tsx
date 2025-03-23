@@ -7,25 +7,25 @@ import {
   Heading
 } from "@aws-amplify/ui-react";
 
-export default function Detail() {
+export default function Detail({score}: { score: number[] | null }) {
   return (
     <Flex direction="column">
 
       <Heading level={2} fontSize="25px" fontWeight="400">Assessment Results</Heading>
 
       <Flex gap="100px" direction="row" padding="30px 0px 30px 0px">
-        <ItemCard title="利便性" description="test"></ItemCard>
-        <ItemCard title="利便性" description="test"></ItemCard>
-        <ItemCard title="利便性" description="test"></ItemCard>
-        <ItemCard title="利便性" description="test"></ItemCard>
-        <ItemCard title="利便性" description="test"></ItemCard>
+        <ItemCard title="利便性" description="周辺環境の住みやすさを評価" score={score ? score[0] : 0}></ItemCard>
+        <ItemCard title="快適性" description="物件内部の住みやすさを評価" score={score ? score[1] : 0}></ItemCard>
+        <ItemCard title="耐震" description="地震に対する安全性を評価" score={score ? score[2] : 0}></ItemCard>
+        <ItemCard title="資産性" description="資産としての価値を評価" score={score ? score[3] : 0}></ItemCard>
+        <ItemCard title="その他" description="特筆すべき特徴を評価" score={score ? score[4] : 0}></ItemCard>
       </Flex>
   </Flex>
 
   )
 }
 
-function ItemCard({title, description}:{title: string, description: string}) {
+function ItemCard({title, description, score}:{title: string, description: string, score: number}) {
   return (
     <View width="45vw">
       <Flex
@@ -73,7 +73,7 @@ function ItemCard({title, description}:{title: string, description: string}) {
         </Flex>
 
         <Flex gap="16px" direction="row" alignItems="center">
-          <Rating size="large" value={2} maxValue={5}></Rating>
+          <Rating size="large" value={score>0 ? score/20 : 0} maxValue={5}></Rating>
           <Text
             fontSize="16px"
             fontWeight="700"
@@ -85,7 +85,7 @@ function ItemCard({title, description}:{title: string, description: string}) {
             shrink="1"
             basis="0"
             position="relative"
-          >80/100</Text>
+          >{score}/100</Text>
         </Flex>
       </Flex>
     </View>
