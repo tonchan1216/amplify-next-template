@@ -1,15 +1,16 @@
 "use client";
 
-import { Authenticator, View, Heading } from '@aws-amplify/ui-react';
+import { View, Heading } from '@aws-amplify/ui-react';
 import { Amplify } from "aws-amplify";
 import outputs from "@/amplify_outputs.json";
 Amplify.configure(outputs);
 import { useEffect, useState } from "react";
 import { getCurrentUser } from 'aws-amplify/auth';
 import ProfileCard from "./ProfileCard"
+import { type AuthUser } from "aws-amplify/auth";
 
 export default function MyPage() {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<AuthUser | null>(null);
   useEffect(() => {
     (async() => {
       try {
