@@ -13,7 +13,7 @@ export default function Detail({score}: { score: number[] | null }) {
 
       <Heading level={2} fontSize="25px" fontWeight="400">Assessment Results</Heading>
 
-      <Flex gap="100px" direction="row" padding="30px 0px 30px 0px">
+      <Flex gap="100px" direction="row" padding="30px 0px 30px 0px" wrap="wrap" width="100vw">
         <ItemCard title="利便性" description="周辺環境の住みやすさを評価" score={score ? score[0] : 0}></ItemCard>
         <ItemCard title="快適性" description="物件内部の住みやすさを評価" score={score ? score[1] : 0}></ItemCard>
         <ItemCard title="耐震" description="地震に対する安全性を評価" score={score ? score[2] : 0}></ItemCard>
@@ -27,7 +27,7 @@ export default function Detail({score}: { score: number[] | null }) {
 
 function ItemCard({title, description, score}:{title: string, description: string, score: number}) {
   return (
-    <View width="45vw">
+    <View width="350px">
       <Flex
         gap="24px"
         direction="column"

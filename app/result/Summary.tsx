@@ -23,7 +23,7 @@ export default function Summary({propertyData, score}: { propertyData: PropertyD
   
   return (
     <Flex gap="24px" direction="row" justifyContent="flex-start" alignItems="flex-start">
-    <View width="45vw" height="664px">
+    <View width="45vw">
       <RadarChartComponent data={chartData} />
     </View>
 
