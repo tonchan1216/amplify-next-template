@@ -14,4 +14,11 @@ export type PropertyData = {
   address: string; //住所
   direction: string; //向き
   transportation: string[]; //交通
+  feature: string; //特徴,
+  pickup: string[];
+};
+
+export type AssessmentResult = {
+  score: number;
+  comments: string[];
 };
