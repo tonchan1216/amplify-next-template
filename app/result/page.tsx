@@ -10,7 +10,7 @@ import outputs from "@/amplify_outputs.json";
 import { generateClient } from "aws-amplify/data";
 import type { Schema } from "@/amplify/data/resource";
 import { scrapeDataFromUrl } from "@/actions/scraper";
-import type { PropertyData } from "@/types/property";
+import type { PropertyData, AssessmentResult } from "@/types/property";
 import { assessmentProperty } from "@/actions/assessment";
 
 Amplify.configure(outputs);
@@ -23,7 +23,7 @@ function MainComponent() {
   const id = searchParams.get("id");
 
   const [scrapedData, setScrapedData] = useState<PropertyData | null>(null);
-  const [score, setScore] = useState<number[] | null>(null); // 点数を保存する状態
+  const [assessment, setAssessment] = useState<AssessmentResult[] | null>(null); // 点数を保存する状態
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -48,11 +48,12 @@ function MainComponent() {
           const scraped = await scrapeDataFromUrl(data.url);
           if (scraped?.propertyData) {
             setScrapedData(scraped.propertyData);
+            console.log(scraped.propertyData)
 
             // スクレイピング後、点数を算出
             const assessmentResult = await assessmentProperty(scraped.propertyData); // 点数算出
-            console.log(assessmentResult)
-            setScore(assessmentResult);
+            // console.log(assessmentResult)
+            setAssessment(assessmentResult);
           }
         }
       } catch (error) {
@@ -84,11 +85,11 @@ function MainComponent() {
   return (
     <Flex gap="24px" direction="column" justifyContent="flex-start" alignItems="flex-start">
       {scrapedData ? (
-        <Summary propertyData={scrapedData} score={score} />
+        <Summary propertyData={scrapedData} assessment={assessment} />
       ) : (
         <View>No Data Available</View>
       )}
-      <Detail score={score} />
+      <Detail assessment={assessment} />
     </Flex>
   );
 }

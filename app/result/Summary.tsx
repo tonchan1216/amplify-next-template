@@ -7,18 +7,18 @@ import {
 } from "@aws-amplify/ui-react";
 import RadarChartComponent from "@/components/elements/RadarChartComponent";
 import React from "react";
-import type { PropertyData } from "@/types/property";
+import type { PropertyData, AssessmentResult } from "@/types/property";
 
-export default function Summary({propertyData, score}: { propertyData: PropertyData, score: number[] | null }) {
-  const chartData = score ? [
-    { subject: "利便性", A: score[0], B: 60, fullMark: 100 },
-    { subject: "快適性", A: score[1], B: 60, fullMark: 100 },
-    { subject: "耐震", A: score[2], B: 60, fullMark: 100 },
-    { subject: "資産性", A: score[3], B: 60, fullMark: 100 },
-    { subject: "その他", A: score[4], B: 50, fullMark: 100 },
+export default function Summary({propertyData, assessment}: { propertyData: PropertyData, assessment: AssessmentResult[] | null }) {
+  const chartData = assessment ? [
+    { subject: "利便性", A: assessment[0].score, B: 60, fullMark: 100 },
+    { subject: "快適性", A: assessment[1].score, B: 60, fullMark: 100 },
+    { subject: "耐震", A: assessment[2].score, B: 60, fullMark: 100 },
+    { subject: "資産性", A: assessment[3].score, B: 60, fullMark: 100 },
+    { subject: "その他", A: assessment[4].score, B: 50, fullMark: 100 },
   ] : [];
 
-  const averageScore = score ? score.reduce((sum, current) => sum + current, 0) / score.length : 0;
+  const averageScore = assessment ? assessment.reduce((sum, current) => sum + current.score, 0) / assessment.length : 0;
   const ratingScore = averageScore > 0 ? averageScore / 20 : 0;
   
   return (
