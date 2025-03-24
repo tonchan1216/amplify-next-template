@@ -23,11 +23,11 @@ export default function Summary({propertyData, score}: { propertyData: PropertyD
   
   return (
     <Flex gap="24px" direction="row" justifyContent="flex-start" alignItems="flex-start">
-    <View width="45vw">
+    <View width="60vw">
       <RadarChartComponent data={chartData} />
     </View>
 
-    <Flex gap="24px" width="55vw" direction="column">
+    <Flex gap="24px" width="40vw" direction="column">
       <Text
         fontSize="24px"
         fontWeight="600"
@@ -42,7 +42,7 @@ export default function Summary({propertyData, score}: { propertyData: PropertyD
         alignSelf="stretch"
       >{propertyData.price}</Text>
 
-      <Flex gap="16px" direction="row">
+      <Flex gap="16px" direction="row"  justifyContent="flex-start" alignItems="center">
         <Rating value={ratingScore} maxValue={5}></Rating>
         <Text
           fontSize="14px"
@@ -53,20 +53,20 @@ export default function Summary({propertyData, score}: { propertyData: PropertyD
       </Flex>
 
       <Flex gap="16px" direction="column">
-      <Text fontSize="20px" fontWeight="400" color="rgba(13,26,38,1)" lineHeight="30px">
-        {propertyData.address}
-        <br />
-        {propertyData.transportation.map((line, index) => (
-          <React.Fragment key={index}>
-            {line}
-            <br />
-          </React.Fragment>
-        ))}
-      </Text>
+        <Text fontSize="20px" fontWeight="400" color="rgba(13,26,38,1)" lineHeight="30px">
+          {propertyData.address}
+        </Text>
 
-        <Button size="large" variation="primary">
-          Add to Favorite♡
-        </Button>
+        <Text fontSize="20px" fontWeight="400" color="rgba(13,26,38,1)" lineHeight="30px">
+          {propertyData.transportation.map((line, index) => (
+            <React.Fragment key={index}>
+              {line}
+              <br />
+            </React.Fragment>
+          ))}
+        </Text>
+
+        <Button size="large" variation="primary" width="60%">Add to Favorite♡</Button>
       </Flex>
     </Flex>
   </Flex>
