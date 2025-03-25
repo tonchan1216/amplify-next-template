@@ -1,4 +1,5 @@
 import { Button, Flex } from "@/components/elements/UI";
+import Image from "next/image";
 export default function Hero() {
   return (
     <Flex
@@ -86,14 +87,9 @@ export default function Hero() {
         overflow="hidden"
         alignSelf="stretch"
       >
-        <img
-          width="720px"
-          height="50px"
-          // display="block"
-          // grow="1"
-          // shrink="1"
-          // basis="0"
-          // position="relative"
+        <Image
+          width={720}
+          height={50}
           src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwzNjUyOXwwfDF8c2VhcmNofDJ8fGZ1bGwlMjBzdGFjayUyMHdlYiUyMGFwcHxlbnwwfHx8fDE2OTY5NTQ3NzE&ixlib=rb-4.0.3&q=80&w=1080"
           alt="hero"
         />
