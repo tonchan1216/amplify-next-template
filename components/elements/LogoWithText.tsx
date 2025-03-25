@@ -1,21 +1,25 @@
-import { Icon, View } from "@aws-amplify/ui-react";
+import { Icon } from "@/components/elements/UI";
 export default function LogoWithText() {
   return (
-    <View
-      width="127.88px"
-      height="18.91px"
-      display="block"
-      position="relative"
-      padding="0px 0px 0px 0px"
+    <div
+      style={{
+        width: "127.88px",
+        height: "18.91px",
+        display: "block",
+        position: "relative",
+        padding: "0px 0px 0px 0px",
+      }}
     >
-      <View
-        width="127.88px"
-        height="18.91px"
-        display="block"
-        position="absolute"
-        top="0px"
-        left="0px"
-        padding="0px 0px 0px 0px"
+      <div
+        style={{
+          width: "127.88px",
+          height: "18.91px",
+          display: "block",
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          padding: "0px 0px 0px 0px",
+        }}
       >
         <Icon
           width="21.78px"
@@ -120,7 +124,7 @@ export default function LogoWithText() {
           top="1.74px"
           left="67.7px"
         ></Icon>
-      </View>
-    </View>
+      </div>
+    </div>
   );
 }
