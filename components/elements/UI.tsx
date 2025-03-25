@@ -1,61 +1,68 @@
-import { ReactNode, CSSProperties } from 'react';
+import { ReactNode, CSSProperties } from "react";
 
+// Flex
 interface FlexProps {
   children: ReactNode;
-  // gap?: CSSProperties['gap'];
-  // flexDirection?: CSSProperties['flexDirection'];
-  // justifyContent?: CSSProperties['justifyContent'];
-  // alignItems?: CSSProperties['alignItems'];
-  // position?: CSSProperties['position'];
-  // padding?: CSSProperties['padding'];
-  // display?: CSSProperties['display'];
-  // width?: CSSProperties['width'];
-  // flexShrink?: CSSProperties['flexShrink'];
-  // alignSelf?: CSSProperties['alignSelf'];
-  // backgroundColor?: CSSProperties['backgroundColor'];
-  // overflow?: CSSProperties['overflow'];
-  [key: string]: any; // 他のプロパティも受け取れるようにする
+  className?: string;
+  gap?: string;
+  flexDirection?: CSSProperties["flexDirection"];
+  justifyContent?: string;
+  alignItems?: string;
+  overflow?: string;
+  position?: CSSProperties["position"];
+  padding?: string;
+  backgroundColor?: string;
+  display?: string;
+  width?: string;
+  height?: string;
+  alignSelf?: string;
+  shrink?: string;
+  boxShadow?: string;
+  // style?: CSSProperties;
 }
 
-//Flex
-export function Flex({children, ...props}: FlexProps) {
+export function Flex({ children, className, ...rest }: FlexProps) {
   return (
-    <div className="amplify-flex" style={{...props}}>
+    <div className={`amplify-flex ${className}`} style={{...rest}}>
       {children}
     </div>
   );
 }
 
-//Divider
-export function Divider({orientation = 'horizontal', size = '', label = '', ...props}: { orientation?: 'horizontal' | 'vertical'; size?: string; label?: string; [key: string]: any }) {
-  const dividerClass = [
-    "amplify-divider",
-    orientation && `amplify-divider--${orientation}`,
-    size && `amplify-divider--${size}`,
-    label && `amplify-divider--label`,
-  ]
-    .filter(Boolean) // falsyな値（空文字やfalse）を除外
-    .join(" ");
-  return (
-    <hr
-      aria-orientation={orientation}
-      style={{...props}}
-      className={dividerClass}
-    ></hr>
-  );
+// Divider
+interface DividerProps extends React.HTMLAttributes<HTMLHRElement> {
+  orientation?: "horizontal" | "vertical";
+  size?: string;
+  label?: string;
+  // style?: CSSProperties;
+  widht?: string;
+  height?: string;
+  alignSelf?: string;
+  shrink?: string;
 }
 
-//Button
-export function Button({
-  children,
-  variation = "",
-  colorTheme = "",
-  size = "",
-  isDisabled = false,
-  isFullWidth = false,
-  isLoading = false,
-  ...props
-}: {
+export function Divider({
+  orientation = "horizontal",
+  size,
+  label,
+  className = "",
+  ...rest
+}: DividerProps) {
+  const dividerClass = [
+    "amplify-divider",
+    `amplify-divider--${orientation}`,
+    size && `amplify-divider--${size}`,
+    label && "amplify-divider--label",
+    className,
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  return <hr aria-orientation={orientation} className={dividerClass} style={{...rest}} />;
+}
+
+// Button
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variation?: string;
   colorTheme?: string;
@@ -63,8 +70,21 @@ export function Button({
   isDisabled?: boolean;
   isFullWidth?: boolean;
   isLoading?: boolean;
-  [key: string]: any;
-}) {
+  // style?: CSSProperties;
+}
+
+export function Button({
+  children,
+  variation,
+  colorTheme,
+  size,
+  isDisabled = false,
+  isFullWidth = false,
+  isLoading = false,
+  className = "",
+  style,
+  ...props
+}: ButtonProps) {
   const buttonClass = [
     "amplify-button",
     variation && `amplify-button--${variation}`,
@@ -73,28 +93,33 @@ export function Button({
     isDisabled && "amplify-button--disabled",
     isFullWidth && "amplify-button--full-width",
     isLoading && "amplify-button--loading",
+    className,
   ]
-    .filter(Boolean) // falsyな値（空文字やfalse）を除外
+    .filter(Boolean)
     .join(" ");
 
   return (
-    <button type="button" className={buttonClass} disabled={isDisabled} {...props}>
+    <button type="button" className={buttonClass} disabled={isDisabled} style={style} {...props}>
       {children}
     </button>
   );
 }
 
+// Icon
 interface IconProps {
   viewBox: { minX: number; minY: number; width: number; height: number };
   paths: { d: string; fill?: string; fillRule?: "inherit" | "nonzero" | "evenodd" }[];
-  [key: string]: any;
+  className?: string;
+  style?: CSSProperties;
 }
 
-export function Icon({ viewBox, paths, ...props }: IconProps) {
+export function Icon({ viewBox, paths, className = "", style, ...props }: IconProps) {
   const viewBoxAttr = `${viewBox.minX} ${viewBox.minY} ${viewBox.width} ${viewBox.height}`;
 
+  const iconClass = ["amplify-icon", className].filter(Boolean).join(" ");
+
   return (
-    <svg viewBox={viewBoxAttr} style={{...props}} className={`amplify-icon ${props.className || ""}`}>
+    <svg viewBox={viewBoxAttr} className={iconClass} style={style} {...props}>
       {paths.map((path, index) => (
         <path key={index} {...path} />
       ))}
