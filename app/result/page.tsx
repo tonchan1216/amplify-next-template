@@ -2,7 +2,7 @@
 
 import { View, Loader, Flex } from "@aws-amplify/ui-react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Summary from "./Summary";
 import Detail from "./Detail";
 import { Amplify } from "aws-amplify";
@@ -16,7 +16,7 @@ import { assessmentProperty } from "@/actions/assessment";
 Amplify.configure(outputs);
 
 const client = generateClient<Schema>();
-type Todo = Schema["Todo"]["type"];
+// type Todo = Schema["Todo"]["type"];
 
 function MainComponent() {
   const searchParams = useSearchParams();
@@ -97,7 +97,9 @@ function MainComponent() {
 export default function ResultPage() {
   return (
     <View overflow="hidden" backgroundColor="rgba(255,255,255,1)" padding="25px 30px">
-      <MainComponent />
+      <Suspense fallback={<Loader size="large" variation="linear" />}>
+        <MainComponent />
+      </Suspense>
     </View>
   );
 }
