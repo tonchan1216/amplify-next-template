@@ -1,6 +1,5 @@
-"use client";
 
-import CTASection from "@/components/elements/CTASection";
+import RegistrationForm from "./registrationForm"
 
 export default function SignupPage() {
   return (
@@ -9,7 +8,7 @@ export default function SignupPage() {
       backgroundColor:"rgba(255,255,255,1)",
       padding:"25px 30px"}}
     >
-      <CTASection
+      <RegistrationForm
         display="flex"
         gap="10px"
         direction="column"
@@ -21,7 +20,7 @@ export default function SignupPage() {
         position="relative"
         padding="160px 160px 160px 160px"
         backgroundColor="rgba(255,255,255,1)"
-      ></CTASection>
+      ></RegistrationForm>
   </div>
 );
 }
