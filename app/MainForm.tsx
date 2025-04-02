@@ -107,6 +107,12 @@ export default function MainForm() {
   };
 
   useEffect(() => {
+    if(url === "") {
+      setIsButtonDisabled(true);  // ボタンを無効にする
+      setHasError(false);
+      return;
+    }
+
     //check if the input is a valid URL
     const isValidUrl = url.match(/http(s)?:\/\/(www\.)?(suumo\.jp|homes\.co\.jp)\/[\w\-\/?=&%\.]*/);
     if (isValidUrl){
