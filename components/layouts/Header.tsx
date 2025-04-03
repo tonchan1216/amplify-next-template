@@ -38,7 +38,7 @@ export default function Header() {
 
         {/* Navigation Links */}
         <BarItem name="Home" link="/" />
-        <BarItem name="Products" link="/" />
+        <BarItem name="Simulation" link="/simulation" />
         <BarItem name="Pricing" link="/" />
         <BarItem name="Contact" link="/" />
       </Flex>
