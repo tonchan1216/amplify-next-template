@@ -1,25 +1,27 @@
-import { Icon, View } from "@aws-amplify/ui-react";
+import { Icon } from "@/components/elements/UI";
 export default function LogoWithText() {
   return (
-    <View
-      width="127.88px"
-      height="18.91px"
-      display="block"
-      position="relative"
-      padding="0px 0px 0px 0px"
+    <div
+      style={{
+        width: "127.88px",
+        height: "18.91px",
+        // display: "block",
+        // position: "relative",
+        // padding: "0px 0px 0px 0px",
+      }}
     >
-      <View
-        width="127.88px"
-        height="18.91px"
-        display="block"
-        position="absolute"
-        top="0px"
-        left="0px"
-        padding="0px 0px 0px 0px"
+      <div
+        style={{
+          width: "127.88px",
+          height: "18.91px",
+          display: "block",
+          position: "absolute",
+          top: "0px",
+          left: "0px",
+          padding: "0px 0px 0px 0px",
+        }}
       >
         <Icon
-          width="21.78px"
-          height="18.91px"
           viewBox={{
             minX: 0,
             minY: 0,
@@ -38,14 +40,16 @@ export default function LogoWithText() {
               fillRule: "nonzero",
             },
           ]}
-          display="block"
-          position="absolute"
-          top="0px"
-          left="0px"
+          style={{
+            display:"block",
+            position:"absolute",
+            top:"0px",
+            left:"0px",
+            width:"21.78px",
+            height:"18.91px"  
+          }}
         ></Icon>
         <Icon
-          width="35.21px"
-          height="12.83px"
           viewBox={{
             minX: 0,
             minY: 0,
@@ -69,14 +73,16 @@ export default function LogoWithText() {
               fillRule: "nonzero",
             },
           ]}
-          display="block"
-          position="absolute"
-          top="2.5px"
-          left="27.14px"
+          style={{
+            display:"block",
+            position:"absolute",
+            top:"2.5px",
+            left:"27.14px",
+            width:"35.21px",
+            height:"12.83px"  
+          }}
         ></Icon>
         <Icon
-          width="60.18px"
-          height="17.17px"
           viewBox={{
             minX: 0,
             minY: 0,
@@ -115,12 +121,16 @@ export default function LogoWithText() {
               fillRule: "nonzero",
             },
           ]}
-          display="block"
-          position="absolute"
-          top="1.74px"
-          left="67.7px"
+          style={{
+            width:"60.18px",
+            height:"17.17px",
+            display:"block",
+            position:"absolute",
+            top:"1.74px",
+            left:"67.7px"  
+          }}
         ></Icon>
-      </View>
-    </View>
+      </div>
+    </div>
   );
 }

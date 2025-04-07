@@ -1,12 +1,14 @@
-"use client";
 
-import CTASection from "@/components/elements/CTASection";
-import { View } from "@aws-amplify/ui-react";
+import RegistrationForm from "./registrationForm"
 
 export default function SignupPage() {
   return (
-    <View overflow="hidden" backgroundColor="rgba(255,255,255,1)" padding="25px 30px">
-      <CTASection
+    <div style={{
+      overflow:"hidden",
+      backgroundColor:"rgba(255,255,255,1)",
+      padding:"25px 30px"}}
+    >
+      <RegistrationForm
         display="flex"
         gap="10px"
         direction="column"
@@ -18,7 +20,7 @@ export default function SignupPage() {
         position="relative"
         padding="160px 160px 160px 160px"
         backgroundColor="rgba(255,255,255,1)"
-      ></CTASection>
-  </View>
+      ></RegistrationForm>
+  </div>
 );
 }
