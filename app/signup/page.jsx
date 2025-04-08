@@ -1,5 +1,5 @@
 
-import RegistrationForm from "./registrationForm"
+import RegistrationForm from "./RegistrationForm"
 
 export default function SignupPage() {
   return (

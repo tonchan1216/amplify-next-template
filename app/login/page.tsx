@@ -52,8 +52,7 @@ export default function LoginPage() {
           color="rgba(13,26,38,1)"
           lineHeight="48px"
           textAlign="center"
-          children="Welcome back!"
-        ></Text>
+        >Welcome back!</Text>
 
         <LoginForm />
         
@@ -62,8 +61,7 @@ export default function LoginPage() {
           fontWeight="400"
           color="rgba(13,26,38,1)"
           lineHeight="24px"
-          children="Don't have an account? "
-        ></Text>
+        >{`Don't have an account?`}</Text>
       </Flex>
 
       <Flex
@@ -84,8 +82,7 @@ export default function LoginPage() {
           color="rgba(233,249,252,1)"
           lineHeight="60px"
           textAlign="center"
-          children="We’ve been using Amplify UI and it changed our lives!"
-        ></Text>
+        >We’ve been using Amplify UI and it changed our lives!</Text>
 
         <Flex gap="24px" direction="column" justifyContent="flex-start" alignItems="center">
           <Flex gap="0" direction="column" justifyContent="flex-start" alignItems="center">
@@ -95,16 +92,14 @@ export default function LoginPage() {
               color="rgba(255,255,255,1)"
               lineHeight="30px"
               textAlign="center"
-              children="Wesley Peck"
-            ></Text>
+            >Wesley Peck</Text>
             <Text
               fontSize="20px"
               fontWeight="400"
               color="rgba(255,255,255,1)"
               lineHeight="30px"
               textAlign="center"
-              children="Product Manager"
-            ></Text>
+            >Product Manager</Text>
           </Flex>
         </Flex>
       </Flex>
