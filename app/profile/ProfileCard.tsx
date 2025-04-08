@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Flex, Image, Text, Link } from "@aws-amplify/ui-react";
 import MyIcon from "@/components/elements/MyIcon"
 import { useSessionContext } from "@/context/SessionContext";
@@ -37,9 +39,15 @@ export default function ProfileCard() {
         </Text>
       </Flex>
 
-      <Link href="/profile/edit">
-        <Button size="large" variation="primary">Edit Profile</Button>
-      </Link>
+      { session ? (
+        <Link href="/profile/edit">
+          <Button size="large" variation="primary">Edit Profile</Button>
+        </Link>
+      ) : (
+        <Link href="/signup">
+          <Button size="large" variation="primary">Create Account</Button>
+        </Link>
+      )}
     </Flex>
   );
 }

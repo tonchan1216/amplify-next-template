@@ -68,7 +68,7 @@ export default function LoginForm() {
             width="300px"
             label="Email address"
             type="email"
-            placeholder="amplify@test.com"
+            placeholder="your_account@email.com"
             isDisabled={false}
             labelHidden={true}
             descriptiveText="Please enter your email address"
@@ -87,7 +87,7 @@ export default function LoginForm() {
             descriptiveText="Please enter your password"
             type="password"
           ></TextField>
-          <Button type="submit" isDisabled={false} variation="primary">Sign me up</Button>
+          <Button type="submit" isDisabled={false} variation="primary">Sign in</Button>
         </Flex>
     </form>
   )
