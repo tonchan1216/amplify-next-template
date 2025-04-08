@@ -22,6 +22,6 @@ export async function postLinkForm(formData: FormData) {
 
   if (!createErrors) {
     console.log(createResult)
-    redirect("/result?id=" + createResult?.id);
+    redirect("/assessment?id=" + createResult?.id);
   }
 }

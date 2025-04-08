@@ -16,7 +16,7 @@ export default function RadarChartComponent({ data }: { data: RadarChartData[] }
         <PolarAngleAxis dataKey="subject" />
         <PolarRadiusAxis domain={[0, 100]} />
         <Radar name="評価" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-        {/* <Radar name="平均" dataKey="B" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} /> */}
+        <Radar name="平均" dataKey="B" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
         {/* <Legend /> */}
       </RadarChart>
     </ResponsiveContainer>
