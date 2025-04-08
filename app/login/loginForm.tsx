@@ -28,7 +28,7 @@ export default function LoginForm() {
     if (session?.user) {
       router.push("/")
     }
-  }, [session]);
+  }, [session, router]);
 
   async function handleSubmit(event: FormEvent<SignInForm>) {
     event.preventDefault()
