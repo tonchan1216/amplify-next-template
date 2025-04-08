@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Flex, Button } from "../elements/UI";
+import { Flex } from "../elements/UI";
+import { LoginItem } from "@/components/elements/LoginItem";
 
 interface BarItemProps {
   name: string;
@@ -43,21 +44,7 @@ export default function Header() {
         <BarItem name="Contact" link="/" />
       </Flex>
 
-      {/* Buttons */}
-      <Flex
-        gap="8px"
-        flexDirection="row"
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        position="relative"
-      >
-        <Link href="/login">
-          <Button variation="link">Log in</Button>
-        </Link>
-        <Link href="/signup">
-          <Button variation="primary">Sign up</Button>
-        </Link>
-      </Flex>
+      <LoginItem />
     </Flex>
   );
 }

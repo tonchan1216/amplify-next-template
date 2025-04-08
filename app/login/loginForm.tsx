@@ -1,12 +1,15 @@
 "use client";
 
 import type { FormEvent } from "react"
-import { Amplify } from "aws-amplify"
-import { signIn } from "aws-amplify/auth"
-import outputs from "@/amplify_outputs.json"
+import { signIn, getCurrentUser } from "aws-amplify/auth"
 import { Button, Flex, TextField } from "@aws-amplify/ui-react"
+import { useEffect } from "react";
+import { useRouter } from 'next/navigation'
+import { useSessionContext } from '@/context/SessionContext';
 
-Amplify.configure(outputs)
+import { Amplify } from "aws-amplify";
+import outputs from "@/amplify_outputs.json";
+Amplify.configure(outputs);
 
 interface SignInFormElements extends HTMLFormControlsCollection {
   email: HTMLInputElement
@@ -18,26 +21,44 @@ interface SignInForm extends HTMLFormElement {
 }
 
 export default function LoginForm() {
+  const router = useRouter()
+  const {session, setSession} = useSessionContext();
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push("/")
+    }
+  }, [session]);
+
   async function handleSubmit(event: FormEvent<SignInForm>) {
     event.preventDefault()
     const form = event.currentTarget
-    // ... validate inputs
 
     await signIn({
       username: form.elements.email.value,
       password: form.elements.password.value,
-    }).then(({isSignedIn, nextStep}) => {
-      console.log(isSignedIn)
-      console.log(nextStep)
+    }).then(({isSignedIn}) => {
+      if (isSignedIn) {
+        getCurrentUser().then((user) => {
+          setSession({
+            user: {
+              name: user?.username ?? null,
+              email: user?.signInDetails?.loginId ?? null,
+              image: null,
+            },
+            expires: new Date(Date.now() + 60 * 60 * 1000).toISOString(),
+          });
+        })
+        router.push("/")
+      }
     }).catch((error) => {
-      console.error("Error signing in:", error)
+      console.error(error)
     })
   }
 
   return (
     <form onSubmit={handleSubmit}>
-        <Flex gap="12px" direction="column" justifyContent="flex-start" alignItems="flex-start">
-          {/* <label htmlFor="email">Email:</label> */}
+        <Flex gap="12px" direction="column" alignItems="flex-end">
           <TextField
             id="email"
             name="email"
@@ -53,7 +74,6 @@ export default function LoginForm() {
             descriptiveText="Please enter your email address"
           ></TextField>
 
-          {/* <label htmlFor="password">Password:</label> */}
           <TextField
             id="password"
             name="password"

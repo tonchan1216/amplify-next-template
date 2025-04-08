@@ -1,17 +1,13 @@
-"use client";
-
-import { Flex, Icon, Text } from '@aws-amplify/ui-react';
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
+import { Flex, Icon } from '@/components/elements/UI';
 import LoginForm from './loginForm';
-Amplify.configure(outputs);
+import Link from 'next/link';
 
 export default function LoginPage() {
   return (
-    <Flex height="90vh" direction="row" justifyContent="center" alignItems="center" overflow="hidden">
+    <Flex height="90vh" flexDirection="row" justifyContent="center" alignItems="center" overflow="hidden">
       <Flex
         gap="16px"
-        direction="column"
+        flexDirection="column"
         width="40%"
         height="100%"
         justifyContent="center"
@@ -22,8 +18,10 @@ export default function LoginPage() {
         padding="16px 60px 16px 60px"
       >
         <Icon
-          width="60.98px"
-          height="52.95px"
+          style={{
+            width: "60.98px",
+            height: "52.95px",
+          }}
           viewBox={{
             minX: 0,
             minY: 0,
@@ -42,64 +40,75 @@ export default function LoginPage() {
               fillRule: "nonzero",
             },
           ]}
-          display="block"
-          shrink="0"
-          position="relative"
         ></Icon>
-        <Text
-          fontSize="32px"
-          fontWeight="700"
-          color="rgba(13,26,38,1)"
-          lineHeight="48px"
-          textAlign="center"
-        >Welcome back!</Text>
+        <p
+          className="amplify-text"
+          style={{
+            fontSize:"32px",
+            fontWeight:"700",
+            color:"rgba(13,26,38,1)",
+            lineHeight:"48px",
+            textAlign:"center"  
+          }}
+        >Welcome back!</p>
 
         <LoginForm />
         
-        <Text
-          fontSize="16px"
-          fontWeight="400"
-          color="rgba(13,26,38,1)"
-          lineHeight="24px"
-        >{`Don't have an account?`}</Text>
+        <p
+          className="amplify-text"
+          style={{
+            fontSize:"16px",
+            fontWeight:"400",
+            color:"rgba(13,26,38,1)",
+            lineHeight:"24px"  
+          }}
+        ><Link href="/signup">{`Don't have an account?`}</Link></p>
       </Flex>
 
       <Flex
         gap="48px"
         height="100%"
-        direction="column"
+        flexDirection="column"
         justifyContent="center"
         alignItems="center"
         overflow="hidden"
-        grow="1"
         shrink="1"
         padding="60px 60px 60px 60px"
         backgroundColor="rgba(0,85,102,1)"
       >
-        <Text
-          fontSize="40px"
-          fontWeight="600"
-          color="rgba(233,249,252,1)"
-          lineHeight="60px"
-          textAlign="center"
-        >We’ve been using Amplify UI and it changed our lives!</Text>
+        <p
+          className="amplify-text"
+          style={{
+            fontSize:"40px",
+            fontWeight:"600",
+            color:"rgba(233,249,252,1)",
+            lineHeight:"60px",
+            textAlign:"center"
+          }}
+        >We’ve been using Amplify UI and it changed our lives!</p>
 
-        <Flex gap="24px" direction="column" justifyContent="flex-start" alignItems="center">
-          <Flex gap="0" direction="column" justifyContent="flex-start" alignItems="center">
-            <Text
-              fontSize="20px"
-              fontWeight="600"
-              color="rgba(255,255,255,1)"
-              lineHeight="30px"
-              textAlign="center"
-            >Wesley Peck</Text>
-            <Text
-              fontSize="20px"
-              fontWeight="400"
-              color="rgba(255,255,255,1)"
-              lineHeight="30px"
-              textAlign="center"
-            >Product Manager</Text>
+        <Flex gap="24px" flexDirection="column" justifyContent="flex-start" alignItems="center">
+          <Flex gap="0" flexDirection="column" justifyContent="flex-start" alignItems="center">
+            <p
+              className="amplify-text"
+              style={{
+                fontSize:"20px",
+                fontWeight:"600",
+                color:"rgba(255,255,255,1)",
+                lineHeight:"30px",
+                textAlign:"center"
+              }}
+            >Wesley Peck</p>
+            <p
+              className="amplify-text"
+              style={{
+                fontSize:"20px",
+                fontWeight:"400",
+                color:"rgba(255,255,255,1)",
+                lineHeight:"30px",
+                textAlign:"center"  
+              }}
+            >Product Manager</p>
           </Flex>
         </Flex>
       </Flex>
