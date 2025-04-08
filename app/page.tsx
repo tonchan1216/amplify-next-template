@@ -1,5 +1,4 @@
 import { Flex } from "@/components/elements/UI";
-// import Hero from "@/components/elements/Hero"
 import RealEstateCostForm from "@/components/elements/RealEstateCostForm"
 
 export default function App() {
@@ -16,14 +15,12 @@ export default function App() {
               display: "block",
               letterSpacing: "-1.13px",
             }}
-          >HOME</h1>
+          >Simple Cost Simulation</h1>
         </div>
 
         <RealEstateCostForm></RealEstateCostForm>
 
       </Flex>
-
-      {/* <Hero></Hero> */}
     </div>
   );
 }

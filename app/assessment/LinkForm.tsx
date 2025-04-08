@@ -115,7 +115,7 @@ function Priority() {
   )
 }
 
-export default function MainForm() {
+export default function LinkForm() {
   const [url, setUrl] = useState("");
   const [isButtonDisabled, setIsButtonDisabled] = useState(true);
   const [hasError, setHasError] = useState(false);
