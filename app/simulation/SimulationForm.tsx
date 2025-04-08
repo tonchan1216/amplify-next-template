@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import Form from 'next/form';
+// import Form from 'next/form';
 import { Button, Input, Flex, SliderField } from "@aws-amplify/ui-react"
 
-export default function SimForm() {
+export default function SimlationForm() {
   const [formData, setFormData] = useState({
     propertyPrice: 0,
     purchaseCost: 0,
@@ -15,20 +15,20 @@ export default function SimForm() {
     simulationYears: 35,
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     console.log("handleChange", e);
     // setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Simulating cash flow with: ", formData);
-  };
+  // const handleSubmit = (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   console.log("Simulating cash flow with: ", formData);
+  // };
 
   return (
     <div className="max-w-xl mx-auto p-4 bg-white shadow-lg rounded-lg">
       <h2 className="text-xl font-bold mb-4">Input</h2>
-      <Form action={handleSubmit} className="space-y-3">
+      {/* <Form action={handleSubmit} className="space-y-3"> */}
         <Flex gap="12px" direction="column" justifyContent="flex-start" alignItems="flex-start" alignSelf="stretch">
           <Input name="propertyPrice" type="number" placeholder="物件価格" onChange={handleChange} />
           <Input name="purchaseCost" type="number" placeholder="購入時の諸費用" onChange={handleChange} />
@@ -63,7 +63,7 @@ export default function SimForm() {
           />
           <Button type="submit" variation="primary">シミュレーション開始</Button>
         </Flex>
-      </Form>
+      {/* </Form> */}
     </div>
   );
 }

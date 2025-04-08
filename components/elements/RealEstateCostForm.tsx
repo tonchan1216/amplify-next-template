@@ -5,7 +5,6 @@ import {
   Table,
   TableHead,
   TableRow,
-  TableCell,
   TableBody,
   TableFoot,
   Input,
@@ -13,6 +12,7 @@ import {
   Flex,
   Button
 } from "@aws-amplify/ui-react";
+import { TableCell } from "@/components/elements/CustomTable";
 import Link from "next/link";
 import { CostModel } from "@/models/CostModel";
 
@@ -55,7 +55,8 @@ export default function RealEstateCostForm() {
               return (
                 <TableRow key={`${category}-${index}`}>
                   {index === 0 && (
-                    <TableCell rowspan={items.length}>{category}</TableCell>
+                    // <TableCell test="hoge">{category}</TableCell>
+                    <TableCell rowSpan={items.length}>{category}</TableCell>
                   )}
                   <TableCell>{item.label}</TableCell>
                   <TableCell>{format(item.value)}</TableCell>
@@ -68,7 +69,8 @@ export default function RealEstateCostForm() {
         </TableBody>
         <TableFoot>
           <TableRow>
-            <TableCell colspan={2}>総額</TableCell>
+            <TableCell colSpan={2}>総額</TableCell>
+            {/* <TableCell foobar="hoge">総額</TableCell> */}
             {/* <TableCell></TableCell> */}
             <TableCell>{format(beforeCost.getTotal())}</TableCell>
             <TableCell>{format(afterCost.getTotal())}</TableCell>
