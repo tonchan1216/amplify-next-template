@@ -1,6 +1,6 @@
 import { Flex } from "@/components/elements/UI";
 import Hero from "@/components/elements/Hero"
-import MainForm from "@/app/RealEstateCostForm"
+import LinkForm from "@/app/assessment/LinkForm"
 
 export default function App() {
   return (
@@ -16,10 +16,10 @@ export default function App() {
               display: "block",
               letterSpacing: "-1.13px",
             }}
-          >HOME</h1>
+          >Assessment</h1>
         </div>
 
-        <MainForm></MainForm>
+        <LinkForm></LinkForm>
 
       </Flex>
 
