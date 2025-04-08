@@ -1,6 +1,6 @@
 import { Flex } from "@/components/elements/UI";
-// import Hero from "@/components/elements/Hero"
-import RealEstateCostForm from "@/components/elements/RealEstateCostForm"
+import Hero from "@/components/elements/Hero"
+import MainForm from "@/app/RealEstateCostForm"
 
 export default function App() {
   return (
@@ -19,11 +19,11 @@ export default function App() {
           >HOME</h1>
         </div>
 
-        <RealEstateCostForm></RealEstateCostForm>
+        <MainForm></MainForm>
 
       </Flex>
 
-      {/* <Hero></Hero> */}
+      <Hero></Hero>
     </div>
   );
 }
