@@ -1,34 +1,24 @@
 "use client";
 
-import { View, Heading } from '@aws-amplify/ui-react';
-import { Amplify } from "aws-amplify";
-import outputs from "@/amplify_outputs.json";
-Amplify.configure(outputs);
-import { useEffect, useState } from "react";
-import { getCurrentUser } from 'aws-amplify/auth';
+import { Heading } from '@aws-amplify/ui-react';
 import ProfileCard from "./ProfileCard"
-import { type AuthUser } from "aws-amplify/auth";
 
 export default function MyPage() {
-  const [user, setUser] = useState<AuthUser | null>(null);
-  useEffect(() => {
-    (async() => {
-      try {
-        const currentUser = await getCurrentUser();
-        setUser(currentUser);
-        console.log("Current user:", currentUser);
-      } catch (error) {
-        console.error("Error fetching user:", error);
-      }
-    })();
-  }, []);
 
   return (
-    <View overflow="hidden" backgroundColor="rgba(255,255,255,1)" padding="25px 30px">
+    <div style={{overflow:"hidden", backgroundColor:"rgba(255,255,255,1)"}}>
+      <h1
+        className="amplify-heading--1"
+        style={{
+          fontWeight: "700",
+          lineHeight: "77.45454406738281px",
+          textAlign: "left",
+          display: "block",
+          letterSpacing: "-1.13px",
+        }}
+      >My Profile</h1>
+      <ProfileCard></ProfileCard>
 
-      <Heading level={1} fontWeight="700">My Page</Heading>
-      <ProfileCard userinfo={user}></ProfileCard>
-
-    </View>
+    </div>
   );
 }

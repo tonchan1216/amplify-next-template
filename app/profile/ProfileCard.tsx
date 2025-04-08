@@ -1,8 +1,10 @@
 import { Button, Flex, Image, Text, Link } from "@aws-amplify/ui-react";
 import MyIcon from "@/components/elements/MyIcon"
-import { type AuthUser } from "aws-amplify/auth";
+import { useSessionContext } from "@/context/SessionContext";
 
-export default function ProfileCard({userinfo}: {userinfo: AuthUser | null}) {
+export default function ProfileCard() {
+  const { session } = useSessionContext();
+
   return (
     <Flex gap="24px" direction="column" alignItems="center" padding="24px" backgroundColor="rgba(255,255,255,1)">
       <Image
@@ -20,11 +22,11 @@ export default function ProfileCard({userinfo}: {userinfo: AuthUser | null}) {
 
       <Flex gap="8px" direction="column" alignItems="center">
         <Text fontSize="20px" fontWeight="700" color="rgba(13,26,38,1)" textAlign="center">
-          {userinfo ? userinfo.username: "Guest"}
+          {session ? session.user?.name: "Guest"}
         </Text>
         <Text fontSize="16px" fontWeight="400" color="rgba(48,64,80,1)" textAlign="center">
           {/* {userinfo ? userinfo.signInDetails.loginId: ""} */}
-          {userinfo?.signInDetails?.loginId}
+          {session ? session.user?.email: "No email"}
         </Text>
       </Flex>
 
