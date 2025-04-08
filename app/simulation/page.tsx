@@ -1,7 +1,8 @@
 import { Flex } from "@/components/elements/UI";
-import RealEstateCostForm from "@/components/elements/RealEstateCostForm"
+import SynchronizedLineChart from "@/components/elements/SynchronizedLineChart"
+import SimlationForm from "@/app/simulation/SimulationForm"
 
-export default function App() {
+export default function Simulation() {
   return (
     <div style={{overflow:"hidden", backgroundColor:"rgba(255,255,255,1)"}}>
       <Flex gap="50px" flexDirection="column" padding="2% 10%">
@@ -15,12 +16,14 @@ export default function App() {
               display: "block",
               letterSpacing: "-1.13px",
             }}
-          >Simple Cost Simulation</h1>
+          >Cash Flow Simulation</h1>
         </div>
 
-        <RealEstateCostForm></RealEstateCostForm>
+        <SimlationForm></SimlationForm>
 
       </Flex>
+
+      <SynchronizedLineChart/>
     </div>
   );
 }
