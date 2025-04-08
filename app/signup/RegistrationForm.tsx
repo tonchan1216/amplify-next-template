@@ -63,8 +63,7 @@ export default function RegistrationForm() {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Stay in touch and never miss an update"
-          ></Text>
+          >Stay in touch and never miss an update</Text>
           <Text
             fontFamily="Inter"
             fontSize="16px"
@@ -78,8 +77,7 @@ export default function RegistrationForm() {
             position="relative"
             padding="0px 0px 0px 0px"
             whiteSpace="pre-wrap"
-            children="Keep up to date on the latest and greatest in the frontend and fullstack community"
-          ></Text>
+          >Keep up to date on the latest and greatest in the frontend and fullstack community</Text>
         </Flex>
 
         <form onSubmit={handleSubmit}>

@@ -1,6 +1,6 @@
 import { Flex } from "@/components/elements/UI";
 import SynchronizedLineChart from "@/components/elements/SynchronizedLineChart"
-import SimForm from "@/app/simulation/SimForm"
+import SimlationForm from "@/app/simulation/SimulationForm"
 
 export default function Simulation() {
   return (
@@ -19,7 +19,7 @@ export default function Simulation() {
           >Cash Flow Simulation</h1>
         </div>
 
-        <SimForm></SimForm>
+        <SimlationForm></SimlationForm>
 
       </Flex>
 

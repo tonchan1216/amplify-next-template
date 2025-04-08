@@ -1,5 +1,6 @@
 import { Flex } from "@/components/elements/UI";
-import RealEstateCostForm from "@/components/elements/RealEstateCostForm"
+import Hero from "@/components/elements/Hero"
+import LinkForm from "@/app/assessment/LinkForm"
 
 export default function App() {
   return (
@@ -15,12 +16,14 @@ export default function App() {
               display: "block",
               letterSpacing: "-1.13px",
             }}
-          >Simple Cost Simulation</h1>
+          >Assessment</h1>
         </div>
 
-        <RealEstateCostForm></RealEstateCostForm>
+        <LinkForm></LinkForm>
 
       </Flex>
+
+      <Hero></Hero>
     </div>
   );
 }
